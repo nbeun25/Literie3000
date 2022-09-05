@@ -25,8 +25,7 @@ if (!empty($_POST)) {
 
     if (empty($errors)) {
 
-        $query = $db->prepare("INSERT INTO matelas (nom, prix, prix_remise, picture, marques_id, dimensions_id) VALUES (:nom, :prix, :prix_remise, :picture, :marques_id, :dimensions_id");
-
+        $query = $db->prepare("UPDATE matelas (nom, prix, prix_remise, picture, marques_id, dimensions_id) VALUES (:nom, :prix, :prix_remise, :picture, :marques_id, :dimensions_id");
         $query->bindParam(":nom", $nom);
         $query->bindParam(":prix", $prix);
         $query->bindParam(":prix_remise", $prix_remise);
@@ -45,7 +44,7 @@ include("templates/header.php");
             <img src="./src/3.png" alt="">
         </a>
     </div>
-    <h1>Ajouter un matelas</h1>
+    <h1>Modifier le matelas</h1>
     <div class="submit">
         <form action="" method="post">
             <div class="form-group pic">
@@ -110,7 +109,7 @@ include("templates/header.php");
                 </select>
             </div>
 
-            <input type="submit" value="Ajout du matelas" class="btn-submit">
+            <input type="submit" value="Modification du matelas" class="btn-submit">
         </form>
     </div>
 

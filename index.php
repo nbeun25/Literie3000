@@ -52,7 +52,9 @@ include("templates/header.php");
                     </div>
                     <div class="boutton">
                         <input type="submit" value="Supprimer" class="btn-sup">
-                        <input type="submit" value="Modifier" class="btn-mod">
+                        <a href="./updateMatelas.php">
+                            <input type="submit" value="Modifier" class="btn-mod">
+                        </a>
                     </div>
                 </div>
             <?php
