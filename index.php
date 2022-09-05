@@ -4,7 +4,11 @@ $dsn = "mysql:host=localhost;dbname=literie3000;cahrset=UTF8";
 $db = new PDO($dsn, "root", "");
 
 // Récupération des matelas
-$query = $db->query("SELECT * FROM matelas");
+$query = $db->query("SELECT matelas.picture as 'picture', matelas.nom as 'nom', matelas.prix as 'prix', matelas.prix_remise as 'reduction', dimensions.dimension as 'Dimensions', marques.nom as 'marque' from marques RIGHT JOIN matelas
+on marques.id = matelas.marques_id 
+right join dimensions
+on matelas.dimensions_id = dimensions.id 
+group by matelas.nom");
 // Récupération sous forme d'un tableau associatif
 $matelas = $query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -31,7 +35,9 @@ include("templates/header.php");
             ?>
                 <div class="matela">
                     <img src="<?= $matela["picture"] ?>" alt="">
+                    <h2><?= $matela["marque"] ?></h2>
                     <h2><?= $matela["nom"] ?></h2>
+                    <h2><?= $matela["prix"] ?> €</h2>
                 </div>
             <?php
             } ?>
