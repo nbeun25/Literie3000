@@ -15,6 +15,7 @@ $matelas = $query->fetchAll(PDO::FETCH_ASSOC);
     foreach ($matelas as $matela) {
     ?>
         <div class="matela">
+            <img src="<?= $matela["picture"] ?>" alt="">
             <h2><?= $matela["nom"] ?></h2>
         </div>
     <?php
