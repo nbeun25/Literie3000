@@ -114,7 +114,10 @@ body {
     border: 0.3rem solid #593B02;
 }
 
-.btn-sup {
+.btn-sup a {
+    text-decoration: none;
+}
+.btn-sup{
     background-color: #2A6797;
     color: white;
     border: 0.3rem solid #2A6797;

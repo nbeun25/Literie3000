@@ -5,7 +5,7 @@ $db = new PDO($dsn, "root", "");
 $sponsors = $db->query("SELECT * FROM marques")->fetchAll(PDO::FETCH_ASSOC);
 $widths = $db->query("SELECT * FROM dimensions")->fetchAll(PDO::FETCH_ASSOC);
 
-if (!empty($_POST)) {
+if (isset($_GET["id"])) {
     $nom = trim(strip_tags($_POST["nom"]));
     $prix = trim(strip_tags($_POST["prix"]));
     $prix_remise = trim(strip_tags($_POST["prix_remise"]));
@@ -25,7 +25,7 @@ if (!empty($_POST)) {
 
     if (empty($errors)) {
 
-        $query = $db->prepare("UPDATE matelas (nom, prix, prix_remise, picture, marques_id, dimensions_id) VALUES (:nom, :prix, :prix_remise, :picture, :marques_id, :dimensions_id");
+        $query = $db->prepare("UPDATE matelas (nom, prix, prix_remise, picture, marques_id, dimensions_id) VALUES (:nom, :prix, :prix_remise, :picture, :marques_id, :dimensions_id WHERE id = :id");
         $query->bindParam(":nom", $nom);
         $query->bindParam(":prix", $prix);
         $query->bindParam(":prix_remise", $prix_remise);
@@ -34,6 +34,7 @@ if (!empty($_POST)) {
         $query->bindParam(":dimensions_id", $dimensions_id);
 
         $query->execute(); 
+        $Matela = $query->fetch();
     }
 }
 include("templates/header.php");

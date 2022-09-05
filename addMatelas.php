@@ -25,7 +25,7 @@ if (!empty($_POST)) {
 
     if (empty($errors)) {
 
-        $query = $db->prepare("INSERT INTO matelas (nom, prix, prix_remise, picture, marques_id, dimensions_id) VALUES (:nom, :prix, :prix_remise, :picture, :marques_id, :dimensions_id");
+        $query = $db->prepare("INSERT INTO matelas (nom, prix, prix_remise, picture, marques_id, dimensions_id) VALUES (:nom, :prix, :prix_remise, :picture, :marques_id, :dimensions_id)");
 
         $query->bindParam(":nom", $nom);
         $query->bindParam(":prix", $prix);

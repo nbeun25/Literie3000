@@ -4,7 +4,7 @@ $dsn = "mysql:host=localhost;dbname=literie3000;cahrset=UTF8";
 $db = new PDO($dsn, "root", "");
 
 // Récupération des matelas
-$query = $db->query("SELECT matelas.picture as 'picture', matelas.nom as 'nom', matelas.prix as 'prix', matelas.prix_remise as 'reduction', dimensions.dimension as 'dimensions', marques.nom as 'marque' from marques RIGHT JOIN matelas
+$query = $db->query("SELECT matelas.id as 'id', matelas.picture as 'picture', matelas.nom as 'nom', matelas.prix as 'prix', matelas.prix_remise as 'reduction', dimensions.dimension as 'dimensions', marques.nom as 'marque' from marques RIGHT JOIN matelas
 on marques.id = matelas.marques_id 
 right join dimensions
 on matelas.dimensions_id = dimensions.id 
@@ -51,7 +51,9 @@ include("templates/header.php");
                         <h2 id="destock"><?= $matela["reduction"] ?></h2>
                     </div>
                     <div class="boutton">
-                        <input type="submit" value="Supprimer" class="btn-sup">
+                        <div class="btn-sup">
+                            <a href="./delete.php?id=<?=$matela["id"]?>">Supprimer</a>
+                        </div>
                         <a href="./updateMatelas.php">
                             <input type="submit" value="Modifier" class="btn-mod">
                         </a>
