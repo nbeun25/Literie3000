@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100%;
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.page {
+    /* border: 4px solid red; */
+    display: flex;
+}
+
+/* Géreance des deux côtés */
+.table-l {
+    width: 20%;
+    background-color: #144284;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+}
+
+.table-l img {
+    width: 70%;
+}
+
+.table-r {
+    width: 70%;
+    margin: 10px;
+}
+
+.lines {
+    background-color: #F2F2F2;
+}
+
+.informations {
+    display: flex;
+    justify-content: space-around;
+}
+
+.matela {
+    display: flex;
+    margin: 10px;
+}
+.matela img {
+    width: 400px;
+    height: 250px; 
+}
